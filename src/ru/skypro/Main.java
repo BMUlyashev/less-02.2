@@ -40,16 +40,13 @@ public class Main {
                 new Random().nextInt(100), new Random().nextInt(100), new Random().nextInt(100),
                 new Random().nextInt(100), new Random().nextInt(100));
 
-        Hogwarts.printStudentInfo(harryPotter);
-        Hogwarts.printStudentInfo(hermionaGranger);
-        Hogwarts.printStudentInfo(zahariyaSmit);
-        Hogwarts.printStudentInfo(jowChang);
-        Hogwarts.printStudentInfo(drakoMalfoy);
+        harryPotter.printStudentInfo();
+        drakoMalfoy.printStudentInfo();
+        hermionaGranger.printStudentInfo();
+        drakoMalfoy.compareTo(harryPotter);
+        harryPotter.griffindorCompareTo(hermionaGranger);
 
-        Slizerin.printBestStudent(drakoMalfoy, gregoriGoil);
-        Griffindor.printBestStudent(harryPotter, hermionaGranger);
-
-        Hogwarts.printBestStudent(drakoMalfoy, harryPotter);
+        drakoMalfoy.slizerinCompareTo(gregoriGoil);
 
     }
 
