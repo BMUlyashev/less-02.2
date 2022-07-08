@@ -45,15 +45,15 @@ public class Griffindor extends Hogwarts{
 
     @Override
     public String toString() {
-        return String.format("Благородство: %d. Честь: %d. Храбрость: %d.", nobility, honor, bravery);
+        return String.format("%s. Благородство: %d. Честь: %d. Храбрость: %d.", super.toString(), nobility, honor, bravery);
     }
 
-    public static void printBestStudent(Griffindor that, Griffindor another) {
-        if (that != null && another != null) {
-            if (that.getSumScore() > another.getSumScore()) {
-                System.out.printf("%s лучший Грифиндорец, чем %s.%n", that.getName(), another.getName());
-            } else if (that.getSumScore() < another.getSumScore()) {
-                System.out.printf("%s лучший Грифиндорец, чем %s.%n", another.getName(), that.getName());
+    public void griffindorCompareTo(Griffindor another) {
+        if (this != null && another != null) {
+            if (this.getSumScore() > another.getSumScore()) {
+                System.out.printf("%s лучший Грифиндорец, чем %s.%n", this.getName(), another.getName());
+            } else if (this.getSumScore() < another.getSumScore()) {
+                System.out.printf("%s лучший Грифиндорец, чем %s.%n", another.getName(), this.getName());
             } else {
                 System.out.println("Студенты по способностям равны");
             }

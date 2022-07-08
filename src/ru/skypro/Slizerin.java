@@ -69,16 +69,16 @@ public class Slizerin extends Hogwarts {
 
     @Override
     public String toString() {
-        return String.format("Хитрость: %d. Решительность: %d. Амбициозность: %d. Жажда власти: %d",
-                getCunning(), getDetermination(), getAmbition(), getResourcefulness(), getAuthority());
+        return String.format("%s. Хитрость: %d. Решительность: %d. Амбициозность: %d. Жажда власти: %d",
+                super.toString(),getCunning(), getDetermination(), getAmbition(), getResourcefulness(), getAuthority());
     }
 
-    public static void printBestStudent(Slizerin that, Slizerin another) {
-        if (that != null && another != null) {
-            if (that.getSumScore() > another.getSumScore()) {
-                System.out.printf("%s лучший Слизеринец, чем %s.%n", that.getName(), another.getName());
-            } else if (that.getSumScore() < another.getSumScore()) {
-                System.out.printf("%s лучший Слизеринец, чем %s.%n", another.getName(), that.getName());
+    public void slizerinCompareTo(Slizerin another) {
+        if (this != null && another != null) {
+            if (this.getSumScore() > another.getSumScore()) {
+                System.out.printf("%s лучший Слизеринец, чем %s.%n", this.getName(), another.getName());
+            } else if (this.getSumScore() < another.getSumScore()) {
+                System.out.printf("%s лучший Слизеринец, чем %s.%n", another.getName(), this.getName());
             } else {
                 System.out.println("Студенты по способностям равны");
             }

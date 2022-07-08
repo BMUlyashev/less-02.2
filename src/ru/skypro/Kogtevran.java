@@ -57,16 +57,16 @@ public class Kogtevran extends Hogwarts {
 
     @Override
     public String toString() {
-        return String.format("Ум: %d. Мудрость: %d. Остроумие: %d. Творчество: %d",
-                getSmart(), getWisdom(), getWit(), getCreation());
+        return String.format("%s. Ум: %d. Мудрость: %d. Остроумие: %d. Творчество: %d",
+                super.toString(), getSmart(), getWisdom(), getWit(), getCreation());
     }
 
-    public static void printBestStudent(Kogtevran that, Kogtevran another) {
-        if (that != null && another != null) {
-            if (that.getSumScore() > another.getSumScore()) {
-                System.out.printf("%s лучший Когтевранец, чем %s.%n", that.getName(), another.getName());
-            } else if (that.getSumScore() < another.getSumScore()) {
-                System.out.printf("%s лучший Когтевранец, чем %s.%n", another.getName(), that.getName());
+    public void kogtevranCompareTo(Kogtevran another) {
+        if (this != null && another != null) {
+            if (this.getSumScore() > another.getSumScore()) {
+                System.out.printf("%s лучший Когтевранец, чем %s.%n", this.getName(), another.getName());
+            } else if (this.getSumScore() < another.getSumScore()) {
+                System.out.printf("%s лучший Когтевранец, чем %s.%n", another.getName(), this.getName());
             } else {
                 System.out.println("Студенты по способностям равны");
             }

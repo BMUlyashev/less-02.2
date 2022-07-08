@@ -45,15 +45,16 @@ public class Puffenduy extends Hogwarts {
 
     @Override
     public String toString() {
-        return String.format("Трудолюбие: %d. Верность: %d. Честность: %d.", getIndustriousness(), getLoyalty(), getHonesty());
+        return String.format("%s. Трудолюбие: %d. Верность: %d. Честность: %d.",
+                super.toString(),getIndustriousness(), getLoyalty(), getHonesty());
     }
 
-    public static void printBestStudent(Puffenduy that, Puffenduy another) {
-        if (that != null && another != null) {
-            if (that.getSumScore() > another.getSumScore()) {
-                System.out.printf("%s лучший Пуффендоец, чем %s.%n", that.getName(), another.getName());
-            } else if (that.getSumScore() < another.getSumScore()) {
-                System.out.printf("%s лучший Пуффендоец, чем %s.%n", another.getName(), that.getName());
+    public void puffenduyCompareTo(Puffenduy another) {
+        if (this != null && another != null) {
+            if (this.getSumScore() > another.getSumScore()) {
+                System.out.printf("%s лучший Пуффендоец, чем %s.%n", this.getName(), another.getName());
+            } else if (this.getSumScore() < another.getSumScore()) {
+                System.out.printf("%s лучший Пуффендоец, чем %s.%n", another.getName(), this.getName());
             } else {
                 System.out.println("Студенты по способностям равны");
             }

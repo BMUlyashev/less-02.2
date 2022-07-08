@@ -1,6 +1,6 @@
 package ru.skypro;
 
-public class Hogwarts {
+public abstract class  Hogwarts {
     private final String name;
     private int magicPower;
     private int transgressionDistance;
@@ -43,26 +43,32 @@ public class Hogwarts {
         }
     }
 
-    public static void printStudentInfo(Hogwarts student) {
-        System.out.printf("%s -> Сила магии: %d. Трансгрессивность: %d. %s\n",
-                student.getName(), student.getMagicPower(), student.getTransgressionDistance(), student);
+    public void printStudentInfo() {
+        System.out.println(this);
     }
 
     private int getSumScore() {
         return getMagicPower() + getTransgressionDistance();
     }
 
-    public static void printBestStudent(Hogwarts that, Hogwarts another) {
-        if (that != null && another != null) {
-            if (that.getSumScore() > another.getSumScore()) {
-                System.out.printf("%s обладает бОльшеймощностью магии, чем %s.%n", that.getName(), another.getName());
-            } else if (that.getSumScore() < another.getSumScore()) {
-                System.out.printf("%s обладает бОльшеймощностью магии, чем %s.%n", another.getName(), that.getName());
+    public void compareTo(Hogwarts another) {
+        if (this != null && another != null) {
+            int capabilitiesThis = this.getSumScore();
+            int capabilitiesAnother = another.getSumScore();
+            if (capabilitiesThis > capabilitiesAnother) {
+                System.out.printf("%s обладает бОльшеймощностью магии, чем %s.%n", this.getName(), another.getName());
+            } else if (capabilitiesThis < capabilitiesAnother) {
+                System.out.printf("%s обладает бОльшей мощностью магии, чем %s.%n", another.getName(), this.getName());
             } else {
                 System.out.println("У студентов одинаковая мощность магии");
             }
         } else {
             System.out.println("Один из студентов не инициализирован!!");
         }
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s: Сила магии %d. Трансрессия %d", name, magicPower, transgressionDistance);
     }
 }
